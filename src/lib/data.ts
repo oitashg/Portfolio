@@ -5,7 +5,7 @@ export const site = {
   email: "oitashg@gmail.com",
   phone: "+91 91635 85861",
   resume: "/Oitash_Ghosh_Resume.pdf",
-  url: "https://oitashghosh.vercel.app",
+  url: "https://portfolio-oitash.vercel.app",
   tagline:
     "I build data platforms that move billions of records and products people actually ship on.",
   summary: [
