@@ -11,7 +11,19 @@ export function Skills() {
     >
       <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
         {skills.map((group, i) => (
-          <Reveal key={group.group} delay={0.05 * i} className="bg-bg">
+          // An odd number of groups would leave an empty cell, and because the
+          // grid draws its dividers as bg-line showing through a gap-px gutter,
+          // that empty cell renders as a filled grey panel rather than nothing.
+          // Letting the last group span both columns removes the cell entirely.
+          <Reveal
+            key={group.group}
+            delay={0.05 * i}
+            className={`bg-bg${
+              i === skills.length - 1 && skills.length % 2 === 1
+                ? " sm:col-span-2"
+                : ""
+            }`}
+          >
             <div className="h-full p-6 sm:p-7">
               <h3 className="font-mono text-[11px] tracking-[0.16em] text-accent uppercase">
                 {group.group}
