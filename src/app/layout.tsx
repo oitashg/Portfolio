@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Oitash Ghosh — Software & Data Engineer. Ex-Amazon data engineering intern building Spark/EMR pipelines at billion-record scale, and full-stack products with React, Django and Node.";
+  "Oitash Ghosh, Software Engineer. Ex-Amazon intern building systems that stay correct under failure, from Raft consensus and LSM storage engines to Spark/EMR pipelines at billion-record scale.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role}`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | ${site.role}`,
+    template: `%s | ${site.name}`,
   },
   description,
   keywords: [
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: site.url,
-    title: `${site.name} — ${site.role}`,
+    title: `${site.name} | ${site.role}`,
     description,
     siteName: site.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.role}`,
+    title: `${site.name} | ${site.role}`,
     description,
   },
   robots: { index: true, follow: true },

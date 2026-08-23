@@ -81,7 +81,7 @@ export const experience: Experience[] = [
       "Built and migrated petabyte-scale inventory pipelines for the global supply chain org.",
     points: [
       "Designed a Spark/EMR **Data Quality Framework** processing **1 billion+ daily records** across 5 regions, deploying a Z-score anomaly detection model that improved data reliability by **25%**.",
-      "Migrated **10+ big data pipelines**, resolving Scala build conflicts, and built a Python CLI to bulk-migrate **100+ profiles** — cutting deployment time by **40%**.",
+      "Migrated **10+ big data pipelines**, resolving Scala build conflicts, and built a Python CLI to bulk-migrate **100+ profiles**, cutting deployment time by **40%**.",
       "Re-architected a **Low Inventory Audit** pipeline serving 11 marketplaces and 20+ data sources, achieving **100% output parity** with the legacy infrastructure.",
       "Developed a **14-day advance notification system** for inventory levels, preventing over **25%** of critical monthly stockout events globally.",
     ],
@@ -110,11 +110,11 @@ export const projects: Project[] = [
     name: "Stratakv",
     period: "Aug 2026",
     tagline:
-      "A linearizable distributed key-value store \u2014 Raft consensus, an LSM storage engine, and a linearizability checker that verifies the whole thing under network partitions.",
+      "A linearizable distributed key-value store built on Raft consensus, an LSM storage engine, and a linearizability checker that verifies the whole thing under network partitions.",
     points: [
-      "From-scratch Raft \u2014 leader election, log replication, current-term-only commitment and snapshot compaction \u2014 sustaining 1,100 ops/s across 3 nodes, with leader failover measured at 334\u2013526 ms.",
+      "From-scratch Raft covering leader election, log replication, current-term-only commitment and snapshot compaction, sustaining 1,100 ops/s across 3 nodes, with leader failover measured at 334\u2013526 ms.",
       "Hand-written LSM storage engine: a CRC-framed write-ahead log with torn-tail recovery, skiplist memtable, bloom-filtered SSTables and levelled compaction. Point reads land at 1.17 \u00b5s, and the filters skip 99% of tables on absent keys.",
-      "Correctness is proved rather than asserted. A self-written linearizability checker (Wing & Gong, with Lowe's memoisation) verified 3,150 operations across 15 leader changes under repeated partitions, with zero anomalies \u2014 and the checker itself is tested against six classes of known violation.",
+      "Correctness is proved rather than asserted. A self-written linearizability checker (Wing & Gong, with Lowe's memoisation) verified 3,150 operations across 15 leader changes under repeated partitions, with zero anomalies. The checker itself is tested against six classes of known violation.",
       "Raised throughput 25 \u2192 1,100 ops/s by isolating each layer: group-commit durability, an append-only log, and a lock-free counter on the apply path that was serialising every operation behind a 4 ms fsync.",
     ],
     stack: ["Go", "Raft", "LSM-Tree", "Distributed Systems", "Docker"],
@@ -232,7 +232,7 @@ export const skills: { group: string; items: string[] }[] = [
 
 export const achievements = [
   {
-    title: "Adobe India Hackathon 2025 — Round 2",
+    title: "Adobe India Hackathon 2025, Round 2",
     detail:
       "Qualified for Round 2 building an AI-powered document intelligence solution under strict offline and performance constraints.",
     tag: "Hackathon",
@@ -240,16 +240,16 @@ export const achievements = [
   {
     title: "1000+ problems solved",
     detail:
-      "Across LeetCode, GeeksforGeeks, CodeChef and Codeforces — sustained practice in algorithms and data structures.",
+      "Across LeetCode, GeeksforGeeks, CodeChef and Codeforces, with sustained practice in algorithms and data structures.",
     tag: "Competitive Programming",
   },
   {
-    title: "AIR 8120 — JEE Mains",
+    title: "AIR 8120 in JEE Mains",
     detail: "Scored 99.1 percentile in the JEE Mains examination.",
     tag: "Entrance Exam",
   },
   {
-    title: "Rank 566 — WBJEE",
+    title: "Rank 566 in WBJEE",
     detail: "Top 0.6% out of 100,000+ candidates.",
     tag: "Entrance Exam",
   },

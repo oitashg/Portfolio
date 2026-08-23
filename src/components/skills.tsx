@@ -7,7 +7,7 @@ export function Skills() {
       id="skills"
       eyebrow="04 / Skills"
       title="The toolkit."
-      lead="What I reach for day to day — weighted toward the data and backend end of the stack, with enough front-end to ship the whole thing."
+      lead="What I reach for day to day, weighted toward the data and backend end of the stack, with enough front-end to ship the whole thing."
     >
       <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
         {skills.map((group, i) => (
