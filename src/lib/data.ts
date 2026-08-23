@@ -1,17 +1,17 @@
 export const site = {
   name: "Oitash Ghosh",
-  role: "Software & Data Engineer",
+  role: "Software Engineer",
   location: "Salt Lake, Kolkata, India",
   email: "oitashg@gmail.com",
   phone: "+91 91635 85861",
   resume: "/Oitash_Ghosh_Resume.pdf",
   url: "https://portfolio-oitash.vercel.app",
   tagline:
-    "I build data platforms that move billions of records and products people actually ship on.",
+    "I build systems that stay correct when things break \u2014 consensus, storage engines, and the verification that proves it.",
   summary: [
-    "I'm a final-year Information Technology student at Jadavpur University who splits time between two things I like equally: designing data systems that stay correct at scale, and shipping full-stack products end to end.",
-    "At Amazon I built a Spark/EMR data-quality framework validating over a billion records a day across five regions, and re-architected an inventory audit pipeline to 100% parity with the legacy stack. Outside of work I ship production web apps and have solved 1000+ algorithmic problems.",
-    "I'm currently open to Software Engineer and Data Engineer roles.",
+    "I graduated in Information Technology from Jadavpur University, and I'm drawn to the parts of software where correctness is hard to fake: distributed consensus, storage engines, and hot paths where nanoseconds show up in a benchmark.",
+    "At Amazon I re-architected an inventory audit pipeline to 100% parity with the legacy stack and shipped a Python CLI that cut deployment time by 40%. On my own time I've written a Raft-replicated key-value store with its own LSM engine and linearizability checker, and a matching engine that clears a message in 25 nanoseconds.",
+    "I'm currently open to Software Engineer roles.",
   ],
 } as const;
 
@@ -60,13 +60,13 @@ export const experience: Experience[] = [
     current: true,
     href: "https://joinhandshake.com",
     blurb:
-      "Evaluating and stress-testing frontier model output on software engineering tasks.",
+      "Building containerized benchmarks that measure what AI coding agents can actually do.",
     points: [
-      "Evaluate frontier-model responses on software engineering and data tasks, grading correctness, reasoning quality and instruction-following against detailed rubrics.",
-      "Author adversarial prompts and reference solutions that surface failure modes in code generation, debugging and multi-step tool use.",
-      "Write structured critiques that feed directly into model training signal, with an emphasis on reproducible, evidence-backed judgements.",
+      "Engineered **40+ containerized evaluation environments** with automated graders, benchmarking AI coding agents across concurrency debugging, security, ML infrastructure and low-level systems.",
+      "Cut agent solve rate from **80% to 40%** on a distributed systems task by redesigning it to test derived reasoning rather than pattern recall.",
+      "Validated each task against **3 independent implementations** and proved every grading rule affects 2+ cases, catching a grader defect that was failing correct submissions.",
     ],
-    stack: ["Python", "LLM Evaluation", "Prompt Engineering", "Code Review"],
+    stack: ["Python", "Docker", "Automated Grading", "Agent Evaluation", "Distributed Systems"],
   },
   {
     company: "Amazon",
@@ -80,7 +80,7 @@ export const experience: Experience[] = [
     blurb:
       "Built and migrated petabyte-scale inventory pipelines for the global supply chain org.",
     points: [
-      "Designed a Spark/EMR **Data Quality Framework** processing **1 billion+ daily records** across 5 regions, deploying a Z-score anomaly detection model that accelerated data reliability by **25%**.",
+      "Designed a Spark/EMR **Data Quality Framework** processing **1 billion+ daily records** across 5 regions, deploying a Z-score anomaly detection model that improved data reliability by **25%**.",
       "Migrated **10+ big data pipelines**, resolving Scala build conflicts, and built a Python CLI to bulk-migrate **100+ profiles** — cutting deployment time by **40%**.",
       "Re-architected a **Low Inventory Audit** pipeline serving 11 marketplaces and 20+ data sources, achieving **100% output parity** with the legacy infrastructure.",
       "Developed a **14-day advance notification system** for inventory levels, preventing over **25%** of critical monthly stockout events globally.",
@@ -106,6 +106,45 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "Stratakv",
+    period: "Aug 2026",
+    tagline:
+      "A linearizable distributed key-value store \u2014 Raft consensus, an LSM storage engine, and a linearizability checker that verifies the whole thing under network partitions.",
+    points: [
+      "From-scratch Raft \u2014 leader election, log replication, current-term-only commitment and snapshot compaction \u2014 sustaining 1,100 ops/s across 3 nodes, with leader failover measured at 334\u2013526 ms.",
+      "Hand-written LSM storage engine: a CRC-framed write-ahead log with torn-tail recovery, skiplist memtable, bloom-filtered SSTables and levelled compaction. Point reads land at 1.17 \u00b5s, and the filters skip 99% of tables on absent keys.",
+      "Correctness is proved rather than asserted. A self-written linearizability checker (Wing & Gong, with Lowe's memoisation) verified 3,150 operations across 15 leader changes under repeated partitions, with zero anomalies \u2014 and the checker itself is tested against six classes of known violation.",
+      "Raised throughput 25 \u2192 1,100 ops/s by isolating each layer: group-commit durability, an append-only log, and a lock-free counter on the apply path that was serialising every operation behind a 4 ms fsync.",
+    ],
+    stack: ["Go", "Raft", "LSM-Tree", "Distributed Systems", "Docker"],
+    repo: "https://github.com/oitashg/Stratakv",
+    accent: "teal",
+    metrics: [
+      { value: "3,150", label: "ops verified linearizable" },
+      { value: "334ms", label: "fastest failover" },
+      { value: "0", label: "external dependencies" },
+    ],
+  },
+  {
+    name: "Order Book Matching Engine",
+    period: "Aug 2026",
+    tagline:
+      "A price-time-priority limit order book built the way a trading venue's hot path actually is: flat arrays instead of node graphs, a pre-allocated pool instead of malloc, a bitmap instead of a tree walk.",
+    points: [
+      "Sustains 25 ns per message (\u224839M msg/s, single-threaded) at p99 125 ns, using flat price-level arrays, intrusive FIFOs and a lock-free feed handoff.",
+      "Validated trade-for-trade against an independently written reference implementation over 12M+ randomised commands, with zero divergences.",
+      "Clean under AddressSanitizer, UndefinedBehaviorSanitizer and ThreadSanitizer. The benchmark probes the clock's own cost and resolution first, so a 25 ns operation is never measured through a 14 ns observer effect.",
+    ],
+    stack: ["C++20", "Multithreading", "CMake", "Python"],
+    repo: "https://github.com/oitashg/Orderbook-Engine",
+    accent: "indigo",
+    metrics: [
+      { value: "25 ns", label: "per message" },
+      { value: "125 ns", label: "p99 latency" },
+      { value: "12M+", label: "commands, 0 divergences" },
+    ],
+  },
   {
     name: "ELD Trip Planner",
     period: "Jul 2026",
@@ -133,40 +172,12 @@ export const projects: Project[] = [
       { value: "0", label: "API keys required" },
     ],
   },
-  {
-    name: "CodeHolic",
-    period: "Dec 2024",
-    tagline:
-      "A role-based EdTech platform with instructor content authoring, payments and full admin control.",
-    points: [
-      "Built for 500+ students with instructor content creation and comprehensive admin controls over categories and permissions.",
-      "Cloudinary-backed media management and Redux global state driving 5+ real-time dashboards for a seamless UX.",
-      "Secure JWT auth with role-based access control, plus Razorpay integration for real-time course payments and transaction tracking.",
-    ],
-    stack: [
-      "MongoDB",
-      "Express",
-      "React",
-      "Redux",
-      "Node.js",
-      "Cloudinary",
-      "Razorpay",
-    ],
-    live: "https://codeholic.vercel.app",
-    repo: "https://github.com/oitashg/Codeholic",
-    accent: "indigo",
-    metrics: [
-      { value: "500+", label: "students served" },
-      { value: "3", label: "distinct user roles" },
-      { value: "5+", label: "live dashboards" },
-    ],
-  },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
   {
     group: "Languages",
-    items: ["Python", "SQL", "Java", "JavaScript", "TypeScript", "Scala", "C++", "C"],
+    items: ["Python", "Go", "C++", "SQL", "Java", "JavaScript", "TypeScript", "Scala", "C"],
   },
   {
     group: "Data & Cloud",
@@ -193,6 +204,17 @@ export const skills: { group: string; items: string[] }[] = [
       "Express",
       "Tailwind CSS",
       "shadcn/ui",
+    ],
+  },
+  {
+    group: "Systems & Distributed",
+    items: [
+      "Raft / Consensus",
+      "LSM Storage Engines",
+      "Concurrency",
+      "Linearizability Testing",
+      "Docker",
+      "Linux",
     ],
   },
   {
