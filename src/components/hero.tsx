@@ -44,7 +44,7 @@ export function Hero() {
                   />
                   <span className="relative inline-flex size-2 rounded-full bg-accent" />
                 </span>
-                Open to Software &amp; Data Engineer roles
+                Open to Software Engineer roles
               </span>
             </motion.div>
 

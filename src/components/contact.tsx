@@ -22,7 +22,7 @@ export function Contact() {
               Let&apos;s build something that scales.
             </h2>
             <p className="mt-5 leading-relaxed text-muted text-pretty">
-              I&apos;m actively looking for Software Engineer and Data Engineer roles.
+              I&apos;m actively looking for Software Engineer roles.
               If you think there&apos;s a fit, or you just want to talk about Spark,
               rules engines or hard bugs, my inbox is open.
             </p>
