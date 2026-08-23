@@ -153,7 +153,7 @@ export const projects: Project[] = [
     points: [
       "Renders a 24-hour duty grid per day in SVG, auto-generating the FMCSA log sheets drivers are legally required to keep.",
       "Dependency-free rules engine encoding six federal driving and rest limits, backed by 20 unit tests and a self-validation pass that flags violations.",
-      "Replaced 25 rate-limited geocoding calls per trip with an offline 30,000-city index; Nominatim, OSRM and Leaflet give a zero-API-key map stack.",
+      "Replaced rate-limited reverse-geocoding calls with an offline 30,000-city index; Nominatim, OSRM and Leaflet give a zero-API-key map stack.",
     ],
     stack: [
       "React",
