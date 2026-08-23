@@ -1,8 +1,13 @@
-import { Database, Code2, Gauge } from "lucide-react";
+import { Network, Database, Code2, Gauge } from "lucide-react";
 import { site } from "@/lib/data";
 import { Reveal, Section } from "./ui";
 
 const pillars = [
+  {
+    icon: Network,
+    title: "Distributed systems",
+    body: "Consensus and storage built from first principles: a Raft-replicated key-value store with its own LSM engine, checked for linearizability under injected network partitions.",
+  },
   {
     icon: Database,
     title: "Data engineering",
@@ -22,7 +27,7 @@ const pillars = [
 
 export function About() {
   return (
-    <Section id="about" eyebrow="01 / About" title="Two disciplines, one engineer.">
+    <Section id="about" eyebrow="01 / About" title="Three disciplines, one engineer.">
       <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         <Reveal>
           <div className="space-y-5">
