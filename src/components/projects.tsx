@@ -8,7 +8,7 @@ export function Projects() {
       id="projects"
       eyebrow="03 / Projects"
       title="Things I've built."
-      lead="Full products, not demos — each one shipped with the constraints, tests and trade-offs that come with real users."
+      lead="Full products, not demos. Each one shipped with the constraints, tests and trade-offs that come with real users."
     >
       <div className="space-y-6">
         {projects.map((p, i) => (

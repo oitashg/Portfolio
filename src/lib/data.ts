@@ -7,7 +7,7 @@ export const site = {
   resume: "/Oitash_Ghosh_Resume.pdf",
   url: "https://portfolio-oitash.vercel.app",
   tagline:
-    "I build systems that stay correct when things break \u2014 consensus, storage engines, and the verification that proves it.",
+    "I build systems that stay correct when things break. Consensus, storage engines, and the verification that proves it.",
   summary: [
     "I graduated in Information Technology from Jadavpur University, and I'm drawn to the parts of software where correctness is hard to fake: distributed consensus, storage engines, and hot paths where nanoseconds show up in a benchmark.",
     "At Amazon I re-architected an inventory audit pipeline to 100% parity with the legacy stack and shipped a Python CLI that cut deployment time by 40%. On my own time I've written a Raft-replicated key-value store with its own LSM engine and linearizability checker, and a matching engine that clears a message in 25 nanoseconds.",

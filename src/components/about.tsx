@@ -6,7 +6,7 @@ const pillars = [
   {
     icon: Database,
     title: "Data engineering",
-    body: "Spark and EMR pipelines built for correctness first — anomaly detection, parity testing against legacy systems, and quality gates that catch bad data before it reaches a dashboard.",
+    body: "Spark and EMR pipelines built for correctness first, with anomaly detection, parity testing against legacy systems, and quality gates that catch bad data before it reaches a dashboard.",
   },
   {
     icon: Code2,
