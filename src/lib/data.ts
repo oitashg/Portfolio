@@ -214,6 +214,7 @@ export const skills: { group: string; items: string[] }[] = [
       "Concurrency",
       "Linearizability Testing",
       "Docker",
+      "CI/CD (GitHub Actions)",
       "Linux",
     ],
   },
