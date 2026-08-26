@@ -172,6 +172,34 @@ export const projects: Project[] = [
       { value: "0", label: "API keys required" },
     ],
   },
+  {
+    name: "CodeHolic",
+    period: "Dec 2024",
+    tagline:
+      "A role-based EdTech platform on the MERN stack, with course authoring, progress tracking, quizzes and payments.",
+    points: [
+      "Three distinct dashboards for student, instructor and admin, with Redux holding global state across role-specific views and permissions.",
+      "50 REST endpoints over 12 data models covering courses, sections, quizzes, progress tracking and reviews.",
+      "Razorpay payments and Cloudinary media behind JWT authentication, with tiered rate limiting on auth, email and global traffic.",
+    ],
+    stack: [
+      "MongoDB",
+      "Express",
+      "React",
+      "Redux",
+      "Node.js",
+      "Cloudinary",
+      "Razorpay",
+    ],
+    live: "https://codeholic.vercel.app",
+    repo: "https://github.com/oitashg/Codeholic",
+    accent: "indigo",
+    metrics: [
+      { value: "3", label: "role-based dashboards" },
+      { value: "50", label: "REST endpoints" },
+      { value: "12", label: "data models" },
+    ],
+  },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
